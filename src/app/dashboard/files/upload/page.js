@@ -20,8 +20,8 @@ export default function FileUploadPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!selectedFile) {
-            setDialogHeader("خطا");
-            setDialogMessage("لطفاً یک فایل انتخاب کنید.");
+            setDialogHeader("Error");
+            setDialogMessage("Please Select a file");
             setShowDialog(true);
             return;
         }
@@ -44,18 +44,18 @@ export default function FileUploadPage() {
             const result = await response.json();
 
             if (result?.hasError) {
-                setDialogHeader("خطا");
-                setDialogMessage(result?.message || "آپلود فایل با خطا مواجه شد.");
+                setDialogHeader("Error");
+                setDialogMessage(result?.message || "There is an error while uploading file");
             } else {
                 localStorage.setItem("fileId", result.data);
-                setDialogHeader("موفقیت");
-                setDialogMessage("فایل با موفقیت آپلود شد و شناسه ذخیره شد.");
+                setDialogHeader("Success");
+                setDialogMessage("File Successfully Uploaded and Id Saved");
                 setTimeout(() => router.push('/dashboard/overview/all-charts'), 2000)
             }
         } catch (err) {
             console.error("Upload error:", err);
-            setDialogHeader("خطا");
-            setDialogMessage("خطا در ارسال فایل به سرور.");
+            setDialogHeader("Error");
+            setDialogMessage("Error in sending file to server");
         } finally {
             setIsUploading(false);
             setShowDialog(true);
@@ -64,15 +64,15 @@ export default function FileUploadPage() {
 
     return (
         <div
-            dir="rtl"
+            dir="ltr"
             className="d-flex align-items-center justify-content-center vh-100 bg-light"
         >
             <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
-                <h3 className="text-center mb-4">آپلود فایل</h3>
+                <h3 className="text-center mb-4">Upload file</h3>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="file" className="form-label">
-                            انتخاب فایل
+                            Select file
                         </label>
                         <input
                             type="file"
@@ -87,7 +87,7 @@ export default function FileUploadPage() {
                         className="btn btn-primary w-100"
                         disabled={isUploading}
                     >
-                        {isUploading ? "در حال آپلود..." : "ارسال فایل"}
+                        {isUploading ? "Uploading" : "Upload File"}
                     </button>
                 </form>
             </div>

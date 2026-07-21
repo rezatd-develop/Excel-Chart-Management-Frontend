@@ -31,33 +31,33 @@ export default function SignInPage() {
 
             if (data?.hasError) {
                 setErrorMessage(data?.message);
-                setDialogHeader('خطا')
+                setDialogHeader('Error')
                 setShowErrorDialog(true);
             } else {
                 localStorage.setItem('token', data.data?.token);
                 localStorage.setItem('userFullName', data.data?.userFullName);
                 setTimeout(() => router.push('/dashboard/overview/all-charts'), 2000);
-                setDialogHeader('تبریک');
-                setErrorMessage('با موفقیت وارد شدید.');
+                setDialogHeader('Success');
+                setErrorMessage("You've logged in");
                 setShowErrorDialog(true);
             }
         } catch (err) {
             setErrorMessage(err.message || err);
             setShowErrorDialog(true);
-            setDialogHeader('خطا');
+            setDialogHeader('Error');
         }
     };
 
     return (
         <div
-            dir="rtl"
+            dir="ltr"
             className="d-flex align-items-center justify-content-center vh-100 bg-light">
             <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
-                <h3 className="text-center mb-4">ورود به حساب کاربری</h3>
+                <h3 className="text-center mb-4">Login</h3>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="username" className="form-label">
-                            نام کاربری
+                            Username
                         </label>
                         <input
                             type="text"
@@ -66,13 +66,13 @@ export default function SignInPage() {
                             className="form-control text-end"
                             value={formData.username}
                             onChange={handleChange}
-                            placeholder="نام کاربری خود را وارد کنید"
+                            placeholder="Enter your username"
                             required
                         />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="password" className="form-label">
-                            رمز عبور
+                            Password
                         </label>
                         <input
                             type="password"
@@ -81,12 +81,12 @@ export default function SignInPage() {
                             className="form-control text-end"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder="رمز عبور خود را وارد کنید"
+                            placeholder="Enter your password"
                             required
                         />
                     </div>
                     <button type="submit" className="btn btn-primary w-100 mb-2">
-                        ورود
+                        Login
                     </button>
 
                     <button
@@ -94,7 +94,7 @@ export default function SignInPage() {
                         className="btn btn-outline-secondary w-100"
                         onClick={() => router.push('/sign-up')}
                     >
-                        ایجاد حساب کاربری
+                        Create Account
                     </button>
                 </form>
             </div>

@@ -16,7 +16,7 @@ const AdminLayoutMobile = (props) => {
     };
 
     return (
-        <div dir="rtl" className="w-100 vh-100 bg-light position-relative">
+        <div dir="ltr" className="w-100 vh-100 bg-light position-relative">
             {/* Top bar */}
             <div className="d-md-none d-flex justify-content-between align-items-center bg-dark text-white p-3">
                 <button
@@ -25,7 +25,7 @@ const AdminLayoutMobile = (props) => {
                 >
                     <i className="bi bi-list fs-2"></i>
                 </button>
-                <span className="fw-bold fs-5">مرکز مدیریت</span>
+                <span className="fw-bold fs-5">Management Dashboard</span>
             </div>
 
             {/* Sidebar */}
@@ -42,7 +42,7 @@ const AdminLayoutMobile = (props) => {
                 }}
             >
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                    <span className="fw-bold fs-5">منو</span>
+                    <span className="fw-bold fs-5">Menu</span>
                     <button
                         className="btn btn-outline-light btn-sm"
                         onClick={() => setIsOpen(false)}
@@ -83,7 +83,7 @@ const AdminLayoutMobile = (props) => {
                         className="btn btn-outline-light w-100 rounded-pill"
                         onClick={exitUserClicked}
                     >
-                        <i className="bi bi-box-arrow-right me-2"></i> خروج
+                        <i className="bi bi-box-arrow-right me-2"></i> Exit
                     </button>
                 </div>
             </div>

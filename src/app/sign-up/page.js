@@ -34,16 +34,16 @@ export default function SignUpPage() {
 
             if (data?.hasError) {
                 setErrorMessage(data?.message);
-                setDialogHeader('خطا')
+                setDialogHeader('Error')
                 setShowErrorDialog(true);
             } else {
-                setDialogHeader('تبریک');
-                setErrorMessage('ثبت نام با موفقیت انجام شد');
+                setDialogHeader('Success');
+                setErrorMessage('Sign up process was successful');
                 setShowErrorDialog(true);
                 setTimeout(() => router.push('/login'), 2000)
             }
         } catch (err) {
-            setDialogHeader('خطا')
+            setDialogHeader('Error')
             setErrorMessage(err.message || err);
             setShowErrorDialog(true);
         }
@@ -51,14 +51,14 @@ export default function SignUpPage() {
 
     return (
         <div
-            dir="rtl"
+            dir="ltr"
             className="d-flex align-items-center justify-content-center vh-100 bg-light">
             <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
-                <h3 className="text-center mb-4">ثبت نام کاربر جدید</h3>
+                <h3 className="text-center mb-4">Create new user</h3>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="firstName" className="form-label">
-                            نام
+                            Name
                         </label>
                         <input
                             type="text"
@@ -67,13 +67,13 @@ export default function SignUpPage() {
                             className="form-control text-end"
                             value={formData.firstName}
                             onChange={handleChange}
-                            placeholder="نام خود را وارد کنید"
+                            placeholder="Please enter your name"
                             required
                         />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="lastName" className="form-label">
-                            نام خانوادگی
+                            Family
                         </label>
                         <input
                             type="text"
@@ -82,13 +82,13 @@ export default function SignUpPage() {
                             className="form-control text-end"
                             value={formData.lastName}
                             onChange={handleChange}
-                            placeholder="نام خانوادگی خود را وارد کنید"
+                            placeholder="Please enter for last name"
                             required
                         />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="username" className="form-label">
-                            نام کاربری
+
                         </label>
                         <input
                             type="text"
@@ -97,13 +97,13 @@ export default function SignUpPage() {
                             className="form-control text-end"
                             value={formData.username}
                             onChange={handleChange}
-                            placeholder="نام کاربری خود را وارد کنید"
+                            placeholder="Please Enter your username"
                             required
                         />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="phone" className="form-label">
-                            شماره تماس
+                            Phone number
                         </label>
                         <input
                             type="text"
@@ -112,13 +112,13 @@ export default function SignUpPage() {
                             className="form-control text-end"
                             value={formData.phone}
                             onChange={handleChange}
-                            placeholder="شماره تماس خود را وارد کنید"
+                            placeholder="Please Enter your phone number"
                             required
                         />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="password" className="form-label">
-                            رمز عبور
+                            Password
                         </label>
                         <input
                             type="password"
@@ -127,12 +127,12 @@ export default function SignUpPage() {
                             className="form-control text-end"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder="رمز عبور خود را وارد کنید"
+                            placeholder="please Enter your password"
                             required
                         />
                     </div>
                     <button type="submit" className="btn btn-primary w-100">
-                        ثبت نام
+                        Register
                     </button>
                 </form>
             </div>

@@ -27,7 +27,7 @@ const DashboardSellerSales = () => {
     async function fetchSellerSales(startDate, endDate) {
         try {
             if (!fileId) {
-                setErrorMessage('شناسه فایل یافت نشد. لطفاً ابتدا فایل را آپلود کنید.');
+                setErrorMessage('File id not found, please upload the file first');
                 setShowErrorDialog(true);
                 return;
             }
@@ -39,7 +39,7 @@ const DashboardSellerSales = () => {
             const data = await DaOverviewGetSellerSales(fileId, params);
 
             if (data?.hasError) {
-                setErrorMessage(data?.message || 'مشکلی در فراخوانی اطلاعات وجود دارد');
+                setErrorMessage(data?.message || 'There is a problem when fetching data');
                 setShowErrorDialog(true);
             } else {
                 setSellerSales(data?.data || []);
@@ -59,7 +59,7 @@ const DashboardSellerSales = () => {
         if (fileId) {
             fetchSellerSales(startDate, endDate);
         } else if (fileId !== null) {
-            setErrorMessage('شناسه فایل در سیستم یافت نشد. لطفاً ابتدا فایل خود را آپلود کنید.');
+            setErrorMessage('File id not rfound, please upload the file first');
             setShowErrorDialog(true);
             setTimeout(() => router.push('/dashboard/files/upload'), 2000);
         }
@@ -103,7 +103,7 @@ const DashboardSellerSales = () => {
 
             <CuDialog
                 isOpen={showErrorDialog}
-                dialogHeader="خطا"
+                dialogHeader="Error"
                 dialogContent={errorMessage}
                 handleClose={() => setShowErrorDialog(false)}
             />

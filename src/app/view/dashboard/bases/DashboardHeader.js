@@ -18,7 +18,7 @@ export default function DashboardHeader(props) {
     };
 
     return (
-        <div dir="rtl" className="p-1 p-lg-3 p-md-2 p-sm-1 d-flex gap-3">
+        <div dir="ltr" className="p-1 p-lg-3 p-md-2 p-sm-1 d-flex gap-3">
             <div>
                 <div>تاریخ شروع</div>
                 <PersianDatePicker onDateChange={handleStartDateChange} />

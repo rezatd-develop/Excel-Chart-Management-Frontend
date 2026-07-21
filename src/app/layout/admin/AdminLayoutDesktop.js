@@ -39,7 +39,7 @@ const AdminLayoutDesktop = (props) => {
             const fileId = localStorage.getItem('fileId');
             if (!fileId) return;
 
-const response = await getPdfReportsService(fileId, {}, true); // params={}, isFile=true
+            const response = await getPdfReportsService(fileId, {}, true); // params={}, isFile=true
 
             // convert blob to download
             const url = window.URL.createObjectURL(response.data);
@@ -59,7 +59,7 @@ const response = await getPdfReportsService(fileId, {}, true); // params={}, isF
 
 
     return (
-        <div dir="rtl" className="d-flex min-vh-100 bg-light">
+        <div dir="ltr" className="d-flex min-vh-100 bg-light">
             {/* Sidebar */}
             <div
                 className="d-flex flex-column flex-shrink-0 p-3 text-white"
@@ -71,7 +71,7 @@ const response = await getPdfReportsService(fileId, {}, true); // params={}, isF
                 }}
             >
                 <div className="mb-4 text-center">
-                    <span className="fs-4 fw-bold text-light">مرکز مدیریت</span>
+                    <span className="fs-4 fw-bold text-light">Management Dashboard</span>
                 </div>
 
                 <ul className="nav nav-pills flex-column mb-auto">
@@ -111,7 +111,7 @@ const response = await getPdfReportsService(fileId, {}, true); // params={}, isF
                         className="btn btn-outline-light w-100 rounded-pill mt-3"
                         onClick={exitUserClicked}
                     >
-                        <i className="bi bi-box-arrow-right me-2"></i> خروج
+                        <i className="bi bi-box-arrow-right me-2"></i> Exit
                     </button>
                 </div>
             </div>
@@ -126,7 +126,7 @@ const response = await getPdfReportsService(fileId, {}, true); // params={}, isF
                             onClick={() => router.push('/dashboard/files/upload')}
                             color="primary"
                         >
-                            تغییر فایل اکسل
+                            Change Excel File
                         </CuButton>
                         <CuButton
                             variant="contained"
@@ -134,7 +134,7 @@ const response = await getPdfReportsService(fileId, {}, true); // params={}, isF
                             onClick={() => router.push('/dashboard/files/upload')}
                             color="warning"
                         >
-                            آپلود فایل
+                            Excel File
                         </CuButton>
                         <CuButton
                             variant="contained"
@@ -142,14 +142,14 @@ const response = await getPdfReportsService(fileId, {}, true); // params={}, isF
                             onClick={pdfReportClicked}
                             color="warning"
                         >
-                            گزارش PDF
+                            Pdf reports
                         </CuButton>
                     </div>
 
                     <div className="d-flex align-items-center gap-3">
                         <div className="text-end">
                             <div className="fw-semibold">
-                                {localStorage.getItem('userFullName')}، خوش آمدید
+                                {localStorage.getItem('userFullName')} Welcome
                             </div>
                             <small className="text-muted">{persianDateTime}</small>
                         </div>

@@ -16,7 +16,7 @@ const DaProductStaticsServices = () => {
     async function fetchDaProductStaticsServicesService(fileId) {
         try {
             if (!fileId) {
-                setErrorMessage('شناسه فایل یافت نشد. لطفاً ابتدا فایل را آپلود کنید.');
+                setErrorMessage('File id not found, please upload the file first');
                 setShowErrorDialog(true);
                 return;
             }
@@ -24,7 +24,7 @@ const DaProductStaticsServices = () => {
             const data = await DaProductsStaticsServicesServiceApi(fileId);
 
             if (data?.hasError) {
-                setErrorMessage(data?.message || 'مشکلی در فراخوانی اطلاعات وجود دارد');
+                setErrorMessage(data?.message || 'There is a problem when fetching data');
                 setShowErrorDialog(true);
             } else {
                 setDaProductStatics(data?.data);
@@ -41,7 +41,7 @@ const DaProductStaticsServices = () => {
         if (storedFileId) {
             fetchDaProductStaticsServicesService(storedFileId);
         } else {
-            setErrorMessage('شناسه فایل در سیستم یافت نشد. لطفاً ابتدا فایل خود را آپلود کنید.');
+            setErrorMessage('File id not rfound, please upload the file first');
             setShowErrorDialog(true);
             setTimeout(() => router.push('/dashboard/files/upload'), 2000);
         }
@@ -56,12 +56,12 @@ const DaProductStaticsServices = () => {
                         datasets={daProductStatics?.datasets}
                     />
                 ) : (
-                    <p className="text-muted">در حال بارگذاری اطلاعات...</p>
+                    <p className="text-muted">Loading ...</p>
                 )}
 
                 <CuDialog
                     isOpen={showErrorDialog}
-                    dialogHeader="خطا"
+                    dialogHeader="Error"
                     dialogContent={errorMessage}
                     handleClose={() => setShowErrorDialog(false)}
                 />

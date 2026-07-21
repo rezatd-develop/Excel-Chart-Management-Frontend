@@ -1,9 +1,7 @@
 import axiosInstance from "./axios";
 
-// Safely handle config and file downloads
 export const apiGet = async (url, config, isFile = false) => {
   try {
-    // ensure config is always an object
     const safeConfig = typeof config === "object" && config !== null ? config : {};
 
     const res = await axiosInstance.get(url, {

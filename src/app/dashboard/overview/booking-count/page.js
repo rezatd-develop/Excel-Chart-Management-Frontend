@@ -22,7 +22,7 @@ const DaOverviewBookingCount = () => {
             const data = await DaOverviewBookingCountServiceApi(id);
 
             if (data?.hasError) {
-                setErrorMessage(data?.message || 'مشکلی در فراخوانی اطلاعات وجود دارد');
+                setErrorMessage(data?.message || 'There is a problem when fetching data');
                 setShowErrorDialog(true);
             } else {
                 setDaOverviewBookingCount(data?.data);
@@ -40,7 +40,7 @@ const DaOverviewBookingCount = () => {
         if (storedFileId) {
             fetchDaOverviewBookingCountService(storedFileId);
         } else {
-            setErrorMessage('شناسه فایل در سیستم یافت نشد. لطفاً ابتدا فایل خود را آپلود کنید.');
+            setErrorMessage('File id not rfound, please upload the file first');
             setShowErrorDialog(true);
             setTimeout(() => router.push('/dashboard/files/upload'), 2000);
         }
@@ -55,12 +55,12 @@ const DaOverviewBookingCount = () => {
                         datasets={daOverviewBookingCount?.datasets}
                     />
                 ) : (
-                    <p className="text-muted">در حال بارگذاری اطلاعات...</p>
+                    <p className="text-muted">Loading ...</p>
                 )}
 
                 <CuDialog
                     isOpen={showErrorDialog}
-                    dialogHeader="خطا"
+                    dialogHeader="Error"
                     dialogContent={errorMessage}
                     handleClose={() => setShowErrorDialog(false)}
                 />

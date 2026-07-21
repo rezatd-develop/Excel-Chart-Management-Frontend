@@ -23,24 +23,24 @@ const AdminLayout = (props) => {
 
     const menuItems = [
         {
-            id: 1, name: 'نگاه اجمالی', href: '/dashboard/overview/all-charts',
+            id: 1, name: 'Overall Look', href: '/dashboard/overview/all-charts',
             children: [
-                { id: 1001, name: 'شاخص ها', href: '/dashboard/overview/all-charts' },
-                { id: 1002, name: 'مجموع فروش', href: '/dashboard/overview/total-sales' },
-                { id: 1003, name: 'تعداد رزرو ها', href: '/dashboard/overview/booking-count' },
-                { id: 1004, name: 'تخفیف ها', href: '/dashboard/overview/discounts' },
+                { id: 1001, name: 'Indicators', href: '/dashboard/overview/all-charts' },
+                { id: 1002, name: 'Total Sales', href: '/dashboard/overview/total-sales' },
+                { id: 1003, name: 'Reservations', href: '/dashboard/overview/booking-count' },
+                { id: 1004, name: 'Discounts', href: '/dashboard/overview/discounts' },
             ]
         },
         {
-            id: 2, name: 'مقایسه شاخص ها', href: '/dashboard/products-statics/services',
+            id: 2, name: 'Comparison of indicators', href: '/dashboard/products-statics/services',
             children: [
-                { id: 2001, name: 'خدمات', href: '/dashboard/products-statics/services' },
+                { id: 2001, name: 'Services', href: '/dashboard/products-statics/services' },
             ]
         },
         {
-            id: 3, name: 'فایل ها', href: '/dashboard/files/upload',
+            id: 3, name: 'Files', href: '/dashboard/files/upload',
             children: [
-                { id: 3001, name: 'بارگذاری اکسل', href: '/dashboard/files/upload' },
+                { id: 3001, name: 'Upload Excel', href: '/dashboard/files/upload' },
             ]
         },
     ];
