@@ -97,8 +97,8 @@ const AdminLayoutDesktop = (props) => {
                                                 : "text-white-50"
                                         )}
                                     >
-                                        <i className="bi bi-chevron-right me-2"></i>
                                         {child?.name}
+                                        <i className="bi bi-chevron-right me-2"></i>
                                     </Link>
                                 </li>
                             ))}
