@@ -3,6 +3,7 @@
 import CuDialog from "@/app/components/dialog/CuDialog";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
+import axiosInstance from "@/app/services/bases/axios";
 
 export default function FileUploadPage() {
     const [selectedFile, setSelectedFile] = useState(null);
