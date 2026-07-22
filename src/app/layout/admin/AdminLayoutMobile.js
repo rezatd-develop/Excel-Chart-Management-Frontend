@@ -69,7 +69,7 @@ const AdminLayoutMobile = (props) => {
                                             props?.selectedMenuItem === child?.id && "active bg-primary text-white"
                                         )}
                                     >
-                                        <i className="bi bi-chevron-left me-2"></i>
+                                        <i className="bi bi-chevron-right me-2"></i>
                                         {child?.name}
                                     </Link>
                                 </li>
