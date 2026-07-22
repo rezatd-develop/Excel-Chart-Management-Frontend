@@ -11,14 +11,15 @@ export default function FileUploadPage() {
     const [dialogHeader, setDialogHeader] = useState("");
     const [showDialog, setShowDialog] = useState(false);
 
+    const router = useRouter();
+
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files[0]);
     };
 
-    const router = useRouter();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (!selectedFile) {
             setDialogHeader("Error");
             setDialogMessage("Please Select a file");
@@ -32,30 +33,37 @@ export default function FileUploadPage() {
         try {
             setIsUploading(true);
 
-            const token = localStorage.getItem("token");
-            const response = await fetch("http://167.88.165.4:4000/api/files/upload", {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-                body: formData,
-            });
+            const response = await axiosInstance.post(
+                "/files/upload",
+                formData
+            );
 
-            const result = await response.json();
+            const result = response.data;
 
             if (result?.hasError) {
                 setDialogHeader("Error");
-                setDialogMessage(result?.message || "There is an error while uploading file");
+                setDialogMessage(
+                    result?.message || "There is an error while uploading file"
+                );
             } else {
                 localStorage.setItem("fileId", result.data);
+
                 setDialogHeader("Success");
-                setDialogMessage("File Successfully Uploaded and Id Saved");
-                setTimeout(() => router.push('/dashboard/overview/all-charts'), 2000)
+                setDialogMessage(
+                    "File Successfully Uploaded and Id Saved"
+                );
+
+                setTimeout(() => {
+                    router.push("/dashboard/overview/all-charts");
+                }, 2000);
             }
+
         } catch (err) {
             console.error("Upload error:", err);
+
             setDialogHeader("Error");
             setDialogMessage("Error in sending file to server");
+
         } finally {
             setIsUploading(false);
             setShowDialog(true);
