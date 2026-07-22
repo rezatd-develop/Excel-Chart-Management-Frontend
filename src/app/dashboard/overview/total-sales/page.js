@@ -68,7 +68,7 @@ const DaOverviewTotalSales = () => {
     return (
         <AdminLayout>
             <div className="p-3 w-100">
-                <DashboardSellerSales />
+                {/* <DashboardSellerSales /> */}
 
                 <DashboardHeader datesChanged={datesChanged} />
 

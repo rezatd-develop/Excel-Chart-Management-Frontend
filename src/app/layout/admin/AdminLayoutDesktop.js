@@ -14,7 +14,7 @@ const AdminLayoutDesktop = (props) => {
     useEffect(() => {
         const updateDateTime = () => {
             const now = new Date();
-            const formatter = new Intl.DateTimeFormat("fa-IR", {
+            const formatter = new Intl.DateTimeFormat("en-US", {
                 dateStyle: "full",
                 timeStyle: "medium",
             });

@@ -120,7 +120,7 @@ const DaOverviewAllCharts = () => {
                 {fileId ? (
                     <>
                         <TotalOverview />
-                        <DashboardSellerSales />
+                        {/* <DashboardSellerSales /> */}
                         <DashboardHeader datesChanged={datesChanged} />
 
                         {isLoading ? (

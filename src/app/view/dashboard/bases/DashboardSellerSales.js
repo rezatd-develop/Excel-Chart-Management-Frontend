@@ -88,7 +88,7 @@ const DashboardSellerSales = () => {
                                 >
                                     <div className="card-body text-center">
                                         <h6 className="fw-semibold mb-2">{seller.name}</h6>
-                                        <h5 className="fw-bold">{seller.amount.toLocaleString()} تومان</h5>
+                                        <h5 className="fw-bold">{seller.amount.toLocaleString()} &</h5>
                                     </div>
                                 </div>
                             </div>
