@@ -15,7 +15,7 @@ export default function CuDialog(props) {
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
-            dir='rtl'
+            dir='ltr'
         >
             <div className='d-flex justify-content-between overflow-hidden' style={{ minWidth: '350px' }}>
                 <DialogTitle id="alert-dialog-title"

@@ -1,8 +1,7 @@
 "use client";
 
 import CuButton from "@/app/components/button/CuButton";
-import PersianDatePicker from "@/app/components/datePicker/PersianDatePicker";
-import { Button } from "@mui/material";
+import EnglishDatePicker from "@/app/components/datePicker/EnglishDatePicker";
 import { useState } from "react";
 
 export default function DashboardHeader(props) {
@@ -18,19 +17,23 @@ export default function DashboardHeader(props) {
     };
 
     return (
-        <div dir="ltr" className="p-1 p-lg-3 p-md-2 p-sm-1 d-flex gap-3">
+        <div dir="ltr" className="p-1 p-lg-3 p-md-2 p-sm-1 d-flex gap-3 align-items-end">
             <div>
-                <div>تاریخ شروع</div>
-                <PersianDatePicker onDateChange={handleStartDateChange} />
+                <div>Start Date</div>
+                <EnglishDatePicker onDateChange={handleStartDateChange} />
             </div>
             <div>
-                <div>تاریخ پایان</div>
-                <PersianDatePicker onDateChange={handleEndDateChange} />
+                <div>End Date</div>
+                <EnglishDatePicker onDateChange={handleEndDateChange} />
             </div>
-            <div className="d-flex" >
-                <CuButton variant='contained'
-                    onClick={() => (props?.datesChanged(startDate, endDate))}
-                    color='primary'>جستجو</CuButton>
+            <div className="d-flex">
+                <CuButton 
+                    variant='contained'
+                    onClick={() => props?.datesChanged(startDate, endDate)}
+                    color='primary'
+                >
+                    Search
+                </CuButton>
             </div>
         </div>
     );
